@@ -5,7 +5,7 @@
 /* Step 2 - Variables */
 const fullName = "Roy Makau Mutua";
 let currentYear = 2023;
-const profilePicture = "/images/profile.jpg";
+const profilePicture = "./images/profile.jpg";
 
 /* Step 3 - Element Variables */
 const nameElement = document.getElementById("name");
