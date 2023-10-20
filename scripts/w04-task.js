@@ -3,7 +3,7 @@
 /* Profile Object  */
 const myProfile = {
     name: "Roy Makau Mutua",
-    photo: "/images/profile.jpg",
+    photo: "./images/profile.jpg",
     favoriteFoods: ["Fried fish", "Ugali", "Kachumbari", "Lemon squeeze", "Sugar cane juice"],
     hobbies: ["Gardening", "Watching movies", "Listening to music", "Playing chess"],
     placesLived: [],
