@@ -58,7 +58,7 @@ myProfile.placesLived.forEach((obj) => {
     document.getElementById("places-lived").appendChild(dt);
 
     let dd = document.createElement("dd");
-    dt.textContent = obj.length;
+    dd.textContent = obj.length;
     document.getElementById("places-lived").appendChild(dd);
 });
 
