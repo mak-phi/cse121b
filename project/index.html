@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSE 121b | W07: Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+    <!-- <link rel="stylesheet" href="/project/styles/styles.css"> -->
+</head>
+<body>
+    <div id="content">
+        <header>
+            <nav>
+                <ul id="menu">
+                    <li><a id="toggleMenu">&equiv;</a></li>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/w01-task.html">W1 Task</a></li>
+                    <li><a href="/w03-task.html">W3 Task</a></li>
+                    <li><a href="/w04-task.html">W4 Task</a></li>
+                    <li><a href="/w04-task.html">W5 Task</a></li>
+                    <li><a href="/project/index.html" class="active">Project</a></li>
+                  </ul>
+            </nav>
+        </header>
+        <main>
+            <h1 class="tools-title">Anime Fan Review</h1>
+            <div class="tools-grid">
+                <section class="tool">
+                    <h2>[Anime Title]</h2>
+                    <div>
+                        <img class="art-img" src="" alt="">
+                        <div class="side-section">
+                            <p class="side-quote">Every child is an artist. The problem is how to remain an artist once we grow up.</p>
+                            <span class="side-quote-source">Pablo Picasso</span>
+                            <div>
+                                <p>Through art, literature and music, our students learn to think critically, to empathize with others and to express themselves in creative ways.</p>
+                                <a class="read" href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+        </main>
+        <footer>
+            &copy;<span id="year"></span> | Week 07 - Project | CSE 121b
+          </footer>
+          <script src="/scripts/main.js"></script>
+          <script src="/project/scripts/fetch.js"></script>
+          <script>
+            document.getElementById("year").innerHTML = new Date().getFullYear();
+          </script>
+        </footer>
+    </div>
+    <script>
+        // Get the button:
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+    </script>
+</body>
+</html>
