@@ -1,4 +1,4 @@
-const url = 'https://api.myanimelist.net/v2/anime/30230?fields=id,title,main_picture,alternative_titles,start_date,end_date,synopsis,mean,rank,popularity,num_list_users,num_scoring_users,nsfw,created_at,updated_at,media_type,status,genres,my_list_status,num_episodes,start_season,broadcast,source,average_episode_duration,rating,pictures,background,related_anime,related_manga,recommendations,studios,statistics';
+const url = 'https://api.myanimelist.net/v2/anime';
 const options = {
 	method: 'GET',
 	headers: {
@@ -8,7 +8,7 @@ const options = {
 
 const getAnimeDetails = async () => {
 	try {
-		const response = await fetch(url);
+		const response = await fetch(url, options);
 		const result = await response.json();
 		console.log(result);
 	} catch (error) {
