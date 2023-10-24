@@ -15,7 +15,7 @@ const myProfile = {
 myProfile.placesLived.push(
     {
         place: "Nairobi, Kenya",
-        length: "34 years",
+        length: "26 years",
     },
     {
         place: "Eldoret, Kenya",
