@@ -1,19 +1,70 @@
-const url = 'https://cors-anywhere.herokuapp.com/api.myanimelist.net/v2/anime/10357?fields=rank,mean,alternative_titles';
-const options = {
-	method: 'GET',
-	headers: {
-		'X-MAL-CLIENT-ID': 'c0b575cec2a60d4b3690435b7a440401',
-		'Content-Type': 'application/json',
-	}
-};
+/* Declare and initialize global variables */
+const container = document.getElementById("anime-grid");
+let animeList = [];
 
-const getAnimeDetails = async () => {
+/* async getAnimes Function using fetch()*/
+const getAnimes = async () => {
+	const url = 'https://kitsu.io/api/edge/anime?filter[categories]=adventure';
+	const options = {
+		method: 'GET',
+		headers: {
+			'Accept': 'application/vnd.api+json',
+			'Content-Type': 'application/vnd.api+json'
+		}
+	};
 	try {
 		const response = await fetch(url, options);
-		const result = await response.json();
-		console.log(result);
+		if (response.ok)
+		{
+			animeList = await response.json();
+			// console.log(animeList);
+			displayAnimes(animeList.data);
+		}
 	} catch (error) {
 		console.error(error);
 	}
 }
-getAnimeDetails();
+
+/* async displayAnimes Function */
+const displayAnimes = async (animes) => {
+	animes.forEach((anime) => {
+		let section = document.createElement("section");
+		section.setAttribute("class", "showcard");
+				
+		let div = document.createElement("div");
+		div.setAttribute("class", "side-section");
+		
+		let img = document.createElement("img");
+		img.setAttribute("src", anime.attributes.posterImage.small, "alt", anime.attributes.canonicalTitle, "class", "posterImage");
+		section.appendChild(img);
+
+		let h2 = document.createElement("h2");
+		h2.textContent = anime.attributes.canonicalTitle;
+		div.appendChild(h2);
+
+		let para1 = document.createElement("p");
+		para1.setAttribute("class", "period");
+		para1.textContent = `${new Date(anime.attributes.startDate).getFullYear()} - ${new Date(anime.attributes.endDate).getFullYear()}`;
+		div.appendChild(para1);
+
+		let para2 = document.createElement("p");
+		para2.setAttribute("class", "subtype");
+		para2.textContent = anime.attributes.subtype;
+		div.appendChild(para2);
+
+		let para3 = document.createElement("p");
+		para3.setAttribute("class", "averageRating");
+		para3.innerHTML = `<img src="./images/rating-star.svg", alt="Rating">${anime.attributes.averageRating}`;
+		div.appendChild(para3);
+
+		let para4 = document.createElement("p");
+		para4.setAttribute("class", "synopsis");
+		para4.textContent = anime.attributes.synopsis;
+		div.appendChild(para4);
+
+		section.appendChild(div);
+		container.appendChild(section);
+	})
+}
+
+getAnimes();
