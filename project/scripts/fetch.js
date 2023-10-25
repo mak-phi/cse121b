@@ -67,4 +67,34 @@ const displayAnimes = async (animes) => {
 	})
 }
 
+const reset = function(){
+    if (container.hasChildNodes){
+        container.innerHTML = "";
+    }
+};
+
+/* sortBy Function */
+const sortBy = function(animes){
+    reset();
+    let filter = document.getElementById("sortBy").value;
+    switch(filter){        
+        case "highest":
+            displayAnimes(animes.filter((anime) => {
+                return anime.attributes.averageRating > 80;
+            }));
+            break;
+        case "latest":
+            displayAnimes(animes.filter((anime) => {
+                return new Date(anime.attributes.endDate).getFullYear() > 2017;
+            }));
+            break;
+        case "all":
+        default:
+            displayAnimes(animes);
+    }
+};
+
 getAnimes();
+
+/* Event Listener */
+document.getElementById("sortBy").addEventListener("change", () => {sortBy(animeList.data)});

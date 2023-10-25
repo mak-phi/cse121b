@@ -27,6 +27,12 @@
         </header>
         <main>
             <h1>Anime Fan Review</h1>
+            <select id="sortBy" title="Choose a data filter.">
+                <option value="" disabled selected>Filter Animes</option>
+                <option value="latest">Latest</option>
+                <option value="highest">Rating</option>
+                <option value="all">No Filter</option>
+              </select>
             <div id="anime-grid"></div>
             <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
         </main>
